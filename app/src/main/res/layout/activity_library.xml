@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context="com.nmamit.nitte.nittequora.Library">
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="E-LIBRARY"
+                android:id="@+id/textView"
+                android:textSize="50dp"
+                android:textColor="#ffffff"
+                android:background="#00E676"
+                android:elevation="8dp"
+                android:padding="10dp"
+                android:gravity="center"/>
+            <LinearLayout
+                android:orientation="vertical"
+                android:padding="15dp"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Author"
+                    android:layout_below="@+id/editText"
+                    android:layout_marginTop="40dp"
+                    android:hint="Author Name"
+                    android:gravity="center"
+                    android:textSize="25dp" />
+
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Title"
+                    android:layout_below="@+id/editText"
+                    android:layout_marginTop="20dp"
+                    android:hint="Book Name"
+                    android:gravity="center"
+                    android:textSize="25dp" />
+
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/upload"
+                android:layout_marginTop="50dp"
+                android:elevation="9dp"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:textSize="20dp"
+                android:padding="20dp"
+                android:layout_width="fill_parent"
+                android:text="SUBMIT"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="60dp"/>
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout
+        android:id="@+id/show_pdf"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="10dp">
+        <ImageView
+            android:layout_width="60dp"
+            android:id="@+id/profile"
+            android:layout_height="fill_parent"
+            android:background="@drawable/pprofile"
+            android:layout_marginRight="12dp"/>
+        <ImageView
+            android:id="@+id/books"
+            android:layout_width="60dp"
+            android:layout_height="fill_parent"
+            android:background="@drawable/chats"
+            android:layout_marginRight="12dp"/>
+        <ImageView
+            android:id="@+id/events"
+            android:layout_width="60dp"
+            android:layout_height="fill_parent"
+            android:background="@drawable/explore"
+            android:layout_marginRight="12dp"/>
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="fill_parent"
+            android:background="@drawable/groups"
+            android:layout_marginRight="12dp"/>
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="fill_parent"
+            android:background="@drawable/pics"
+            android:layout_marginRight="12dp"/>
+    </LinearLayout>
+</RelativeLayout>

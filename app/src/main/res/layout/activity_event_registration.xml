@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.nmamit.nitte.nittequora.EventRegistration">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+            <TextView
+                android:id="@+id/eeventName"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Event Name"
+                android:textSize="50dp"
+                android:gravity="center"
+                android:layout_marginBottom="20dp"
+                android:elevation="7dp"
+                android:background="#00E676"
+                android:textColor="#ffffff"
+                android:padding="10dp"/>
+            <RelativeLayout
+                android:layout_marginBottom="20dp"
+                android:layout_width="fill_parent"
+                android:layout_height="200dp">
+                <ImageView
+                    android:background="@drawable/event"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent" />
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:background="@android:drawable/dialog_holo_light_frame"
+                    android:layout_marginBottom="10dp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+                    android:elevation="8dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:text="Description:-"
+                        android:textSize="30dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:id="@+id/description"
+                        android:textSize="20dp"
+                        android:layout_marginLeft="8dp"
+                        android:text="This is random desciption"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:background="@android:drawable/dialog_holo_light_frame"
+                    android:layout_marginBottom="10dp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+                    android:elevation="8dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:text="Date:-"
+                        android:textSize="30dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:id="@+id/date"
+                        android:textSize="20dp"
+                        android:layout_marginLeft="8dp"
+                        android:text="14/1/2017"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+            <Button
+                android:id="@+id/register"
+                android:elevation="9dp"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:textSize="20dp"
+                android:padding="20dp"
+                android:layout_width="fill_parent"
+                android:text="Register"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="60dp"/>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

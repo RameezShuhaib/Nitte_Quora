@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "545325741348",
+    "firebase_url": "https://nittequora.firebaseio.com",
+    "project_id": "nittequora",
+    "storage_bucket": "nittequora.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:545325741348:android:e098f5cf1c8da1fd",
+        "android_client_info": {
+          "package_name": "com.nmamit.nitte.nittequora"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "545325741348-tff191nfetdcuh2tc8s72odg37ip9qs4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_gjbQijhRXluhWx4HhLXfyTudtyqrsQU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

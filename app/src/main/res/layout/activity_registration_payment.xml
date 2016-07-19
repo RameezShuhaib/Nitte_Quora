@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.nmamit.nitte.nittequora.RegistrationPayment">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+        <TextView
+            android:background="#00E676"
+            android:textColor="#ffffff"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Payment Info"
+            android:textSize="50dp"
+            android:gravity="center"
+            android:elevation="9dp"
+            android:padding="10dp"/>
+
+        <LinearLayout
+            android:padding="15dp"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:elevation="8dp"
+                android:background="#ffffff"
+                android:padding="20dp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginRight="15dp"
+                    android:text="Username:"
+                    android:textSize="27dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/paiduser"
+                    android:text=""
+                    android:textSize="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:elevation="8dp"
+                android:background="#ffffff"
+                android:padding="20dp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginRight="15dp"
+                    android:text="AmountPaid:"
+                    android:textSize="27dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:id="@+id/paidamount"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:elevation="8dp"
+                android:background="#ffffff"
+                android:padding="20dp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginRight="15dp"
+                    android:text="Successfully Paid:"
+                    android:textSize="27dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <CheckBox
+                    android:id="@+id/paidflag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/paidsendnotification"
+                android:layout_marginTop="10dp"
+                android:elevation="9dp"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:textSize="20dp"
+                android:padding="20dp"
+                android:layout_width="fill_parent"
+                android:text="Send Payment Notification"
+                android:layout_height="wrap_content" />
+
+
+            <Button
+                android:id="@+id/paiduserprofile"
+                android:layout_marginTop="10dp"
+                android:elevation="9dp"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:textSize="20dp"
+                android:padding="20dp"
+                android:layout_width="fill_parent"
+                android:text="Go To User Profile"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/paidsave"
+                android:layout_marginTop="10dp"
+                android:elevation="9dp"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:textSize="20dp"
+                android:padding="20dp"
+                android:layout_width="fill_parent"
+                android:text="SAVE"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

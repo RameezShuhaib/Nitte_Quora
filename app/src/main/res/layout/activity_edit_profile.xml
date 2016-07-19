@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="0dp"
+    tools:context="com.nmamit.nitte.nittequora.EditProfile">
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF">
+            <TextView
+                android:background="#00E676"
+                android:textColor="#ffffff"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Edit Profile"
+                android:textSize="50dp"
+                android:gravity="center"
+                android:elevation="9dp"
+                android:padding="10dp"/>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp">
+                <EditText
+                    android:id="@+id/username"
+                    android:hint="Username"
+                    android:gravity="center"
+                    android:layout_width="fill_parent"
+                    android:layout_marginTop="20dp"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                    android:id="@+id/usn"
+                    android:hint="USN"
+                    android:gravity="center"
+                    android:layout_width="fill_parent"
+                    android:layout_marginTop="20dp"
+                    android:layout_height="wrap_content" />
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:paddingBottom="10dp">
+                    <EditText
+                        android:layout_marginRight="10dp"
+                        android:id="@+id/sem"
+                        android:hint="Semister"
+                        android:gravity="center"
+                        android:layout_width="150dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_height="wrap_content" />
+                    <EditText
+                        android:id="@+id/sec"
+                        android:hint="Section"
+                        android:gravity="center"
+                        android:layout_width="150dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <EditText
+                    android:hint="Branch"
+                    android:id="@+id/branch"
+                    android:gravity="center"
+                    android:layout_width="fill_parent"
+                    android:layout_marginTop="20dp"
+                    android:layout_height="wrap_content" />
+                <RadioGroup
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+                    <RadioButton
+                        android:onClick="onSelected"
+                        android:id="@+id/male"
+                        android:layout_marginRight="80dp"
+                        android:layout_width="wrap_content"
+                        android:text="Male"
+                        android:layout_height="wrap_content" />
+                    <RadioButton
+                        android:onClick="onSelected"
+                        android:id="@+id/female"
+                        android:text="Female"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </RadioGroup>
+                <EditText
+                    android:hint="Bio"
+                    android:id="@+id/bio"
+                    android:gravity="center"
+                    android:layout_width="fill_parent"
+                    android:layout_marginTop="20dp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+            <Button
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Save"
+                android:id="@+id/save"
+                android:layout_marginTop="05dp"
+                android:textSize="30dp"
+                android:layout_marginBottom="60dp"/>
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</RelativeLayout>
