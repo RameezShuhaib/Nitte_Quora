@@ -50,7 +50,7 @@ public class AddEvent extends AppCompatActivity {
                 e.setDescription(description.getText().toString());
                 e.setStartDate(startDate.getText().toString());
                 e.setEndDate(endDate.getText().toString());
-                e.setAdminUser(firebaseAuth.getCurrentUser().getUid());
+                e.setAdminUser(Application.getUsn(getApplicationContext()));
                 fb.child("events").push().setValue(e);
                 Toast.makeText(getApplicationContext(), "event succesfully added",
                         Toast.LENGTH_LONG).show();

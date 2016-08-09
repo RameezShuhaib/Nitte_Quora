@@ -1,6 +1,8 @@
 package com.nmamit.nitte.nittequora;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -40,10 +42,13 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
     EditText username, password;
     TextView c;
     Button login;
+    SharedPreferences sharedUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        sharedUser = getSharedPreferences("user", Context.MODE_PRIVATE);
 
         View googleSignIn = findViewById(R.id.sign_in_button);
         if (googleSignIn != null) {
@@ -73,12 +78,16 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
                     // User is signed in
+                    SharedPreferences.Editor editor = sharedUser.edit();
+                    editor.putString("usn", FirebaseAuth.getInstance().getCurrentUser().getEmail().split("@")[0]);
+                    editor.apply();
+
                     fb.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
-                            if(dataSnapshot.hasChild(FirebaseAuth.getInstance().getCurrentUser().getUid())) {
+                            if(dataSnapshot.hasChild(Application.getUsn(getApplicationContext()))) {
                                 Intent p = new Intent("android.intent.action.profile");
-                                p.putExtra("uid", FirebaseAuth.getInstance().getCurrentUser().getUid());
+                                p.putExtra("uid", Application.getUsn(getApplicationContext()));
                                 startActivity(p);
                             }
                             else
@@ -108,10 +117,20 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                 @Override
                 public void onClick(View view) {
                     if (!username.getText().equals("") && !password.getText().equals("")) {
-                        Intent i = new Intent("android.intent.action.profile");
-                        i.putExtra("username", username.getText().toString());
-                        i.putExtra("password", password.getText().toString());
-                        startActivity(i);
+                        fb.child(username.getText().toString()).addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                if(dataSnapshot.getValue(User.class).getPassword().equals(password.getText().toString())){
+                                    Intent i = new Intent("android.intent.action.profile");
+                                    startActivity(i);
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(FirebaseError firebaseError) {
+
+                            }
+                        });
                     }
                 }
             });
@@ -180,7 +199,8 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
     }
 
     @Override
-    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+    public void onConnectionFailed(@NonNull com.google.android.gms.common.ConnectionResult connectionResult) {
 
     }
+
 }

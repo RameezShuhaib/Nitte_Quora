@@ -1,6 +1,8 @@
 package com.nmamit.nitte.nittequora;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,7 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class Profile extends AppCompatActivity {
     String uid;
-    ImageView books, events;
+    ImageView books, events, messages, pic;
     LinearLayout myevent, leftpanel, sendmessage;
     TextView userName, usn, branch, bio, sec, sem, gender, profileTitle;
     Intent i;
@@ -32,6 +34,7 @@ public class Profile extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
         Button logout = (Button) findViewById(R.id.signout);
 
+
         leftpanel = (LinearLayout) findViewById(R.id.leftpanel);
         sendmessage = (LinearLayout) findViewById(R.id.SendMessage);
         userName = (TextView) findViewById(R.id.pname);
@@ -42,11 +45,20 @@ public class Profile extends AppCompatActivity {
         sem = (TextView) findViewById(R.id.psem);
         gender = (TextView) findViewById(R.id.pgender);
         profileTitle = (TextView) findViewById(R.id.profiletitle);
+        pic = (ImageView) findViewById(R.id.pic);
         i = getIntent();
-        if(i.getStringExtra("uid") != null)
+
+
+
+        if(i.getStringExtra("uid") != null) {
             uid = i.getStringExtra("uid");
-        else
-            uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        }
+        else {
+            uid = Application.getUsn(getApplicationContext());
+        }
+
+
+
 
         myevent = (LinearLayout) findViewById(R.id.myevents);
         myevent.setOnClickListener(new View.OnClickListener() {
@@ -60,9 +72,13 @@ public class Profile extends AppCompatActivity {
             logout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    FirebaseAuth.getInstance().signOut();
-                    finish();
-
+                    try {
+                        FirebaseAuth.getInstance().signOut();
+                        finish();
+                    } catch (Throwable e) {
+                        e.printStackTrace();
+                        finish();
+                    }
                 }
             });
         }
@@ -91,6 +107,8 @@ public class Profile extends AppCompatActivity {
 
         books = (ImageView) findViewById(R.id.books);
         events = (ImageView) findViewById(R.id.events);
+        messages = (ImageView) findViewById(R.id.messages);
+
         books.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -107,6 +125,15 @@ public class Profile extends AppCompatActivity {
                 finish();
             }
         });
+
+        messages.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent("android.intent.action.Notification"));
+                finish();
+            }
+        });
+
         Firebase.setAndroidContext(this);
         fb = new Firebase("https://nittequora.firebaseio.com/users");
         fb.child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -137,14 +164,27 @@ public class Profile extends AppCompatActivity {
                 startActivity(m);
             }
         });
+
+//        Button b = (Button) findViewById(R.id.Make_me_admin);
+//        b.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                fb.child(Application.getUsn(getApplicationContext())+"/eventAdminFlag").setValue(true);
+//            }
+//        });
     }
 
     void userProfile(){
-        if(!FirebaseAuth.getInstance().getCurrentUser().getUid().equals(uid)){
+        if(!Application.getUsn(this).equals(uid)){
             profileTitle.setText(u.getUsername());
             leftpanel.setVisibility(View.GONE);
             myevent.setVisibility(View.GONE);
         }else{
+            try {
+                new ImageLoadTask(FirebaseAuth.getInstance().getCurrentUser().getPhotoUrl().toString(), pic).execute();
+            } catch (Throwable e) {
+                e.printStackTrace();
+            }
             sendmessage.setVisibility(View.GONE);
             if(!u.isEventAdminFlag())
                 addEvent.setVisibility(View.GONE);

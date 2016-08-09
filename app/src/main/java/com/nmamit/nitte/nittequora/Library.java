@@ -8,11 +8,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.client.Firebase;
 
 public class Library extends AppCompatActivity {
-    ImageView profile, events;
+    ImageView profile, events, messages;
     Firebase fb;
     TextView title, author;
     Button upload;
@@ -32,8 +33,11 @@ public class Library extends AppCompatActivity {
                     Books bk = new Books();
                     bk.setAuthor(author.getText().toString());
                     bk.setTitle(title.getText().toString());
+                    bk.setUser(Application.getUsn(getApplicationContext()));
                     fb.child("books").push().setValue(bk);
-                    finish();
+                    Toast.makeText(getApplicationContext(), "Successfully Submited", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(getApplicationContext(), "Please fill the book details", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -57,5 +61,15 @@ public class Library extends AppCompatActivity {
                 finish();
             }
         });
+
+        messages = (ImageView) findViewById(R.id.messages);
+        messages.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent("android.intent.action.Notification"));
+                finish();
+            }
+        });
+
     }
 }

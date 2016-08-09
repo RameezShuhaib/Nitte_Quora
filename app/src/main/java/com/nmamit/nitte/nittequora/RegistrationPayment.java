@@ -73,10 +73,10 @@ public class RegistrationPayment extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Message msg = new Message();
-                msg.setSubject(i.getStringExtra("eventName"));
+                msg.setSubject(i.getStringExtra("eventName")+" Registration");
                 String date = DateFormat.getDateTimeInstance().format(new Date());
                 msg.setDate(date);
-                msg.setSender(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                msg.setSender(Application.getUsn(getApplicationContext()));
                 msg.setMessage("You Have Successfully Paid Rs."+amount.getText().toString()+" and got Registerd to "+i.getStringExtra("eventName")+" at "+date);
                 fbuser = new Firebase("https://nittequora.firebaseio.com/users");
                 fbuser.child(i.getStringExtra("uid")+"/messages/").push().setValue(msg);
@@ -90,6 +90,7 @@ public class RegistrationPayment extends AppCompatActivity {
                 Intent p = new Intent("android.intent.action.profile");
                 p.putExtra("uid", i.getStringExtra("uid"));
                 startActivity(p);
+                finish();
             }
         });
 

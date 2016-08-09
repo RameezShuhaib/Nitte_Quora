@@ -47,9 +47,11 @@ public class sendMessage extends AppCompatActivity {
                 msg.setSubject(subject.getText().toString());
                 String date = DateFormat.getDateTimeInstance().format(new Date());
                 msg.setDate(date);
-                msg.setSender(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                msg.setSender(Application.getUsn(getApplicationContext()));
                 msg.setMessage(message.getText().toString());
                 fb.child(to.getText().toString()+"/messages").push().setValue(msg);
+                Toast.makeText(getApplicationContext(), "Successfully sent message to "+to.getText().toString(), Toast.LENGTH_SHORT).show();
+                finish();
 
             }
         });

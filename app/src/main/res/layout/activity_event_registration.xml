@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.nmamit.nitte.nittequora.EventRegistration">
+
+    <TextView
+        android:id="@+id/eeventName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Event Name"
+        android:textSize="40dp"
+        android:gravity="center"
+        android:layout_marginBottom="20dp"
+        android:elevation="7dp"
+        android:background="#00BFA5"
+        android:textColor="#ffffff"
+        android:padding="10dp"/>
 
     <ScrollView
         android:layout_width="fill_parent"
@@ -12,27 +26,6 @@
             android:orientation="vertical"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
-            <TextView
-                android:id="@+id/eeventName"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="Event Name"
-                android:textSize="50dp"
-                android:gravity="center"
-                android:layout_marginBottom="20dp"
-                android:elevation="7dp"
-                android:background="#00E676"
-                android:textColor="#ffffff"
-                android:padding="10dp"/>
-            <RelativeLayout
-                android:layout_marginBottom="20dp"
-                android:layout_width="fill_parent"
-                android:layout_height="200dp">
-                <ImageView
-                    android:background="@drawable/event"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent" />
-            </RelativeLayout>
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:orientation="vertical"
@@ -82,15 +75,18 @@
                 </LinearLayout>
             </LinearLayout>
             <Button
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:id="@+id/register"
                 android:elevation="9dp"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:textSize="20dp"
-                android:padding="20dp"
+                android:background="@drawable/rounded"
+                android:textColor="#3D70E8"
+                android:textSize="18dp"
+                android:padding="18dp"
                 android:layout_width="fill_parent"
                 android:text="Register"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="60dp"/>
         </LinearLayout>
     </ScrollView>
-</RelativeLayout>
+</LinearLayout>

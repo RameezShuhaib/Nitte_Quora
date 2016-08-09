@@ -31,7 +31,7 @@ public class myEvent extends AppCompatActivity {
         fb.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                if(dataSnapshot.child("adminUser").getValue().equals(FirebaseAuth.getInstance().getCurrentUser().getUid())){
+                if(dataSnapshot.child("adminUser").getValue().equals(Application.getUsn(getApplicationContext()))){
                     getUpdates(dataSnapshot);
                 }
             }

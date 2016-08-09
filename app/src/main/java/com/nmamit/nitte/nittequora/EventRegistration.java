@@ -44,14 +44,14 @@ public class EventRegistration extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(regFlag){
-                    fbuser.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+                    fbuser.child(Application.getUsn(getApplicationContext())).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             p = new Participant();
-                            p.setUid(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                            p.setUid(Application.getUsn(getApplicationContext()));
                             p.setUser(dataSnapshot.child("username").getValue().toString());
                             p.setPaidFlag(false);
-                            String UID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                            String UID = Application.getUsn(getApplicationContext());
                             fb.child(data.getStringExtra("eventkey")+"/participants/"+UID).setValue(p);
                             Toast.makeText(getApplicationContext(), "succesfully Registerd to"+data.getStringExtra("eventname"),
                                     Toast.LENGTH_LONG).show();
@@ -64,7 +64,7 @@ public class EventRegistration extends AppCompatActivity {
                         }
                     });
                 }else{
-                    String UID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                    String UID = Application.getUsn(getApplicationContext());
                     fb.child(data.getStringExtra("eventkey")+"/participants/"+UID).removeValue();
                     Toast.makeText(getApplicationContext(), data.getStringExtra("eventname") + " Registration Cancelled",
                             Toast.LENGTH_LONG).show();
@@ -77,7 +77,7 @@ public class EventRegistration extends AppCompatActivity {
         fb.child(data.getStringExtra("eventkey")+"/participants").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                if(dataSnapshot.hasChild(FirebaseAuth.getInstance().getCurrentUser().getUid())){
+                if(dataSnapshot.hasChild(Application.getUsn(getApplicationContext()))){
                     register.setText("Cancell Registration");
                     regFlag = false;
                 }

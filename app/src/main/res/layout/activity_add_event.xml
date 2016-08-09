@@ -4,6 +4,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.nmamit.nitte.nittequora.AddEvent">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="40dp"
+        android:text="Add Event"
+        android:textColor="#ffffff"
+        android:background="#00BFA5"
+        android:padding="10dp"
+        android:textAlignment="center"
+
+        android:elevation="8dp" />
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
@@ -11,17 +26,7 @@
             android:orientation="vertical"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:textSize="50dp"
-                android:text="Add Event"
-                android:textColor="#ffffff"
-                android:background="#00E676"
-                android:padding="10dp"
-                android:textAlignment="center"
 
-                android:elevation="8dp" />
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
@@ -70,4 +75,5 @@
                 android:layout_marginBottom="50dp"/>
         </LinearLayout>
     </ScrollView>
+    </LinearLayout>
 </RelativeLayout>

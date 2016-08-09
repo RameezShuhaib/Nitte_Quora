@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.Map;
 
 public class EventList extends AppCompatActivity {
-    ImageView profile, books;
+    ImageView profile, books, messages;
     Firebase fb;
     ListView listview;
     ArrayList<Events> eventsList = new ArrayList<>();
@@ -68,6 +68,15 @@ public class EventList extends AppCompatActivity {
 
         profile = (ImageView) findViewById(R.id.profile);
         books = (ImageView) findViewById(R.id.books);
+        messages = (ImageView) findViewById(R.id.messages);
+        messages.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent("android.intent.action.Notification"));
+                finish();
+            }
+        });
+
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

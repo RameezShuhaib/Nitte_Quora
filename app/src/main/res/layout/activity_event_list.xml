@@ -4,67 +4,99 @@ xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="fill_parent"
 android:layout_height="fill_parent"
 tools:context="com.nmamit.nitte.nittequora.EventList">
-            <LinearLayout
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+    <TextView
+        android:id="@+id/event1"
+        android:layout_marginBottom="10dp"
+        android:padding="10dp"
+        android:elevation="9dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="EVENTS"
+        android:gravity="center"
+        android:textSize="40dp"
+        android:textColor="#ffffff"
+        android:background="#00BFA5"
+
+        />
+
+    <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/event1"
-                    android:layout_marginBottom="10dp"
-                    android:padding="10dp"
-                    android:elevation="9dp"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:text="EVENTS"
-                    android:gravity="center"
-                    android:textSize="50dp"
-                    android:textColor="#ffffff"
-                    android:background="#00E676"
-
-                    />
                 <ListView
                     android:id="@+id/listview"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"></ListView>
             </LinearLayout>
+    </LinearLayout>
     <LinearLayout
-        android:id="@+id/show_pdf"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="wrap_content"
+        android:background="#00BFA5"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:background="@color/colorPrimary"
-        android:gravity="center"
         android:orientation="horizontal"
-        android:padding="10dp">
-        <ImageView
-            android:layout_width="60dp"
-            android:id="@+id/profile"
-            android:layout_height="fill_parent"
-            android:background="@drawable/pprofile"
-            android:layout_marginRight="12dp"/>
-        <ImageView
-            android:id="@+id/books"
-            android:layout_width="60dp"
-            android:layout_height="fill_parent"
-            android:background="@drawable/chats"
-            android:layout_marginRight="12dp"/>
-        <ImageView
-            android:id="@+id/events"
-            android:layout_width="60dp"
-            android:layout_height="fill_parent"
-            android:background="@drawable/explore"
-            android:layout_marginRight="12dp"/>
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="fill_parent"
-            android:background="@drawable/groups"
-            android:layout_marginRight="12dp"/>
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="fill_parent"
-            android:background="@drawable/pics"
-            android:layout_marginRight="12dp"/>
+        android:padding="10dp"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/user" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/books"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/book" />
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+
+            <ImageView
+                android:id="@+id/events"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/events"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+
+            <ImageView
+                android:id="@+id/messages"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/notifications" />
+
+        </LinearLayout>
     </LinearLayout>
     </RelativeLayout>

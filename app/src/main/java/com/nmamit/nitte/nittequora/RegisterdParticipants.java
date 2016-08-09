@@ -75,7 +75,6 @@ public class RegisterdParticipants extends AppCompatActivity {
     private void getUpdates(DataSnapshot data){
         Participant p = data.getValue(Participant.class);
         p.setUid(data.getKey());
-        Toast.makeText(getApplicationContext(),p.getUid(),Toast.LENGTH_SHORT).show();
         participantsList.add(p);
         if(participantsList.size()>0){
             ArrayAdapter<Participant> adapter = new ArrayAdapter<Participant>(this,

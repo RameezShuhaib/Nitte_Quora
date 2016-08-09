@@ -1,9 +1,19 @@
 package com.nmamit.nitte.nittequora;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
+import android.widget.ImageView;
+
 import com.firebase.client.Firebase;
 import com.firebase.client.core.view.Event;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.List;
 import java.util.Map;
 
@@ -11,8 +21,61 @@ import java.util.Map;
  * Created by rameezshuhaib on 13-07-2016.
  */
 public class Application {
+    private SharedPreferences sharedPreferences;
+
+    private static SharedPreferences getPrefs(Context context) {
+        return context.getSharedPreferences("user", Context.MODE_PRIVATE);
+    }
+
+    public static String getUsn(Context context) {
+        return getPrefs(context).getString("usn", "");
+    }
+
+    public static void setUsn(Context context, String usn) {
+        SharedPreferences.Editor editor = getPrefs(context).edit();
+        editor.putString("usn", usn);
+        editor.commit();
+    }
+}
+
+
+class ImageLoadTask extends AsyncTask<Void, Void, Bitmap> {
+
+    private String url;
+    private ImageView imageView;
+
+    public ImageLoadTask(String url, ImageView imageView) {
+        this.url = url;
+        this.imageView = imageView;
+    }
+
+    @Override
+    protected Bitmap doInBackground(Void... params) {
+        try {
+            URL urlConnection = new URL(url);
+            HttpURLConnection connection = (HttpURLConnection) urlConnection
+                    .openConnection();
+            connection.setDoInput(true);
+            connection.connect();
+            InputStream input = connection.getInputStream();
+            Bitmap myBitmap = BitmapFactory.decodeStream(input);
+            return myBitmap;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    protected void onPostExecute(Bitmap result) {
+        super.onPostExecute(result);
+        imageView.setImageBitmap(result);
+    }
 
 }
+
+
+
 
 class Books{
     String title, author, user;
@@ -197,7 +260,7 @@ class Events{
 
 
 class User{
-    String userId, username, usn, branch, gender, bio, sem, sec;
+    String userId, username, usn, branch, gender, bio, sem, sec, password;
     Map<String, Message> messages;
     boolean eventAdminFlag;
     public User() {
@@ -283,6 +346,14 @@ class User{
     public void setEventAdminFlag(boolean eventAdminFlag) {
         this.eventAdminFlag = eventAdminFlag;
     }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }
 
 class Message{
@@ -332,4 +403,9 @@ class Message{
     public void setReadFlag(boolean readFlag) {
         this.readFlag = readFlag;
     }
+
+    public String toString() {
+        return subject;
+    }
+
 }
