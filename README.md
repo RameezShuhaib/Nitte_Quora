@@ -19,8 +19,8 @@ details. The admin will get following details such as number of students registe
 profile.
 
 # Objectives:
-• Booking library books from anywhere.
-• Event registration helps the students to register easily to any event.
-• Description, date and fee are easy to find.
-• One click to register and to cancel the registration.
-• Can be used anywhere.
+• Booking library books from anywhere.  
+• Event registration helps the students to register easily to any event.  
+• Description, date and fee are easy to find.  
+• One click to register and to cancel the registration.  
+• Can be used anywhere.  
