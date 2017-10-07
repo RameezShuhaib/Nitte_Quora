@@ -7,7 +7,7 @@ In the front end we have used android UI and java, at the back end we have used 
 server. The project proceeds through a sequence of well-designed forms provided to ensure
 consistency, reliability and most importantly making work unambiguous.
 
-#Introduction
+# Introduction
    The app is designed for booking library books and event registration. In booking library
 books the student is requested to give the authors name and book as input. This information is
 given to librarian via firebase server to the website designed for librarian.
@@ -18,7 +18,7 @@ notification. The student himself can host the events by becoming an admin and e
 details. The admin will get following details such as number of students registered, students
 profile.
 
-#Objectives:
+# Objectives:
 • Booking library books from anywhere.
 • Event registration helps the students to register easily to any event.
 • Description, date and fee are easy to find.
